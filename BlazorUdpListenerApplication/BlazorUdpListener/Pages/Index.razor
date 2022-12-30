@@ -1,0 +1,183 @@
+﻿@page "/"
+@using System.Net.Sockets;
+@using System.Threading;
+@using System.Timers;
+@using System.Net;
+@using System.Text;
+@using System.Collections.Concurrent;
+@implements IDisposable;
+<PageTitle>Index</PageTitle>
+
+<h1>Hello, world!</h1>
+
+Welcome to your new app.
+<style>
+    .console{
+    background-color: #E0E0E0;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    padding:20px;
+}
+.title-label {
+    font-weight: bold;
+    color: white;
+    padding:10px;
+    background-image: linear-gradient(180deg, rgb(5, 39, 103) 0%, #3a0647 70%);
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+</style>
+
+        <div class="title-label">
+            <span>Console log</span>
+        </div>
+        <div class="control-menu">
+            <MudButton class="btn btn-primary" @onclick="() => consoleText.Clear()">Clear</MudButton>
+        </div>
+        <div class="console">
+            <div style="height:400px;width:100%;overflow:auto;padding:10px;">            
+                @foreach(string line in consoleText.ToList()){
+                    @line<br />
+                }
+            </div>
+        </div>
+
+<MudSpacer/>
+<MudTable Items="@timers" Hover="true" Breakpoint="Breakpoint.Sm"  LoadingProgressColor="Color.Info">
+    <ToolBarContent>
+        <MudText Typo="Typo.h6">Cards status</MudText>
+    </ToolBarContent>
+    <HeaderContent>
+        <MudTh>Id</MudTh>
+        <MudTh>Name</MudTh>
+        <MudTh>Description</MudTh>
+        <MudTh>Card Identifier</MudTh>
+    </HeaderContent>
+    <RowTemplate>
+        <MudTd DataLabel="Id">@context.Value._value.Substring(0,2)</MudTd>
+        <MudTd DataLabel="Name">@context.Value._value.Substring(2,4)</MudTd>
+        <MudTd DataLabel="Description">@context.Value._value.Substring(6,4)</MudTd>
+        <MudTd DataLabel="Card Identifier">@context.Value._value.Substring(9,1)</MudTd>
+    </RowTemplate>
+</MudTable>
+
+
+@code{
+        private string udp_recv_data = "";
+    private static ConcurrentBag<string> consoleText = new ();
+    Thread threadUDPServer;
+    UdpClient listener;
+    bool threadUDPServerAbortRequested = false;
+    public static ConcurrentDictionary<string, TimerCard> timers = new();
+    protected override void OnAfterRender(bool firstRender)
+    {
+        threadUDPServerAbortRequested = false;
+
+        if (firstRender)
+        {
+            // Do work to load page data and set properties
+            threadUDPServer = new Thread(threadUDPServerTask);
+            threadUDPServer.Start();
+        }
+    }
+
+    public void threadUDPServerTask()
+    {
+        StartListener();
+
+    }
+
+    public  void StartListener()
+    {
+        const int listenPort = 11000;
+        listener = new UdpClient(listenPort);
+        IPEndPoint groupEP = new IPEndPoint(IPAddress.Any, listenPort);
+        try
+        {
+            while (!threadUDPServerAbortRequested)
+            {
+
+                log("Waiting for broadcast");
+                byte[] bytes = listener.Receive(ref groupEP);
+                var data = Data.ByteArrayToString(bytes);
+                var key = data.Substring(0, 2); //first 2 letters represent the card
+                timers[key] = new TimerCard(key, data);
+
+                log($"Received broadcast from {groupEP} :");
+                log($" {Encoding.ASCII.GetString(bytes, 0, bytes.Length)}");
+                InvokeAsync(() => StateHasChanged());
+            }
+        }
+        catch (SocketException e)
+        {
+            log(e.ToString());
+        }
+        finally
+        {
+            listener.Close();
+        }
+    }
+
+       public class TimerCard
+    {
+
+        public System.Timers.Timer aTimer;
+        public string _key;
+        public string _value;
+        public TimerCard(string key, string data)
+        {
+            _key = key;
+            _value = data;
+            aTimer = new System.Timers.Timer(3000);
+            // Hook up the Elapsed event for the timer. 
+            aTimer.Elapsed += (sender, e) => OnTimedEvent(sender, e, _key);
+            aTimer.AutoReset = true;
+            aTimer.Enabled = true;
+
+        }
+
+    }
+
+    public class Data
+    {
+        public static string ByteArrayToString(byte[] ba)
+        {
+            string hex = BitConverter.ToString(ba);
+            return hex.Replace("-", "");
+        }
+    }
+    public static void log(string line)
+    {
+        consoleText.Add(line);
+
+    }
+    private static void OnTimedEvent(Object source, ElapsedEventArgs e, string _key)
+    {
+        TimerCard item;
+        var ok = timers.TryRemove(_key, out item);
+        if (ok)
+            log("The Elapsed event was raised at " + DateTime.Now.ToString() + " remove " + _key);
+
+    }
+
+    public void Dispose()
+    {
+        threadUDPServerAbortRequested = true;
+        try
+        {
+            if (listener != null)
+            {
+                log("Closing UDP socket...");
+
+                listener.Close();
+                log("Disposed");
+            }
+            
+        }
+        catch (Exception ex)
+        {
+            log("Exception : " + ex.Message);
+        }
+
+    }
+}
