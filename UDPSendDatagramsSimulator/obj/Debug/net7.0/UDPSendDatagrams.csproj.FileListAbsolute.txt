@@ -1,0 +1,30 @@
+D:\source\repos\TCP SERVER\UDPSendDatagrams\bin\Debug\net7.0\UDPSendDatagrams.exe
+D:\source\repos\TCP SERVER\UDPSendDatagrams\bin\Debug\net7.0\UDPSendDatagrams.deps.json
+D:\source\repos\TCP SERVER\UDPSendDatagrams\bin\Debug\net7.0\UDPSendDatagrams.runtimeconfig.json
+D:\source\repos\TCP SERVER\UDPSendDatagrams\bin\Debug\net7.0\UDPSendDatagrams.dll
+D:\source\repos\TCP SERVER\UDPSendDatagrams\bin\Debug\net7.0\UDPSendDatagrams.pdb
+D:\source\repos\TCP SERVER\UDPSendDatagrams\obj\Debug\net7.0\UDPSendDatagrams.csproj.AssemblyReference.cache
+D:\source\repos\TCP SERVER\UDPSendDatagrams\obj\Debug\net7.0\UDPSendDatagrams.GeneratedMSBuildEditorConfig.editorconfig
+D:\source\repos\TCP SERVER\UDPSendDatagrams\obj\Debug\net7.0\UDPSendDatagrams.AssemblyInfoInputs.cache
+D:\source\repos\TCP SERVER\UDPSendDatagrams\obj\Debug\net7.0\UDPSendDatagrams.AssemblyInfo.cs
+D:\source\repos\TCP SERVER\UDPSendDatagrams\obj\Debug\net7.0\UDPSendDatagrams.csproj.CoreCompileInputs.cache
+D:\source\repos\TCP SERVER\UDPSendDatagrams\obj\Debug\net7.0\UDPSendDatagrams.dll
+D:\source\repos\TCP SERVER\UDPSendDatagrams\obj\Debug\net7.0\refint\UDPSendDatagrams.dll
+D:\source\repos\TCP SERVER\UDPSendDatagrams\obj\Debug\net7.0\UDPSendDatagrams.pdb
+D:\source\repos\TCP SERVER\UDPSendDatagrams\obj\Debug\net7.0\UDPSendDatagrams.genruntimeconfig.cache
+D:\source\repos\TCP SERVER\UDPSendDatagrams\obj\Debug\net7.0\ref\UDPSendDatagrams.dll
+C:\Users\OG185028\OneDrive - NCR Corporation\Desktop\UDP Simulator\UDPSendDatagrams\bin\Debug\net7.0\UDPSendDatagrams.exe
+C:\Users\OG185028\OneDrive - NCR Corporation\Desktop\UDP Simulator\UDPSendDatagrams\bin\Debug\net7.0\UDPSendDatagrams.deps.json
+C:\Users\OG185028\OneDrive - NCR Corporation\Desktop\UDP Simulator\UDPSendDatagrams\bin\Debug\net7.0\UDPSendDatagrams.runtimeconfig.json
+C:\Users\OG185028\OneDrive - NCR Corporation\Desktop\UDP Simulator\UDPSendDatagrams\bin\Debug\net7.0\UDPSendDatagrams.dll
+C:\Users\OG185028\OneDrive - NCR Corporation\Desktop\UDP Simulator\UDPSendDatagrams\bin\Debug\net7.0\UDPSendDatagrams.pdb
+C:\Users\OG185028\OneDrive - NCR Corporation\Desktop\UDP Simulator\UDPSendDatagrams\obj\Debug\net7.0\UDPSendDatagrams.csproj.AssemblyReference.cache
+C:\Users\OG185028\OneDrive - NCR Corporation\Desktop\UDP Simulator\UDPSendDatagrams\obj\Debug\net7.0\UDPSendDatagrams.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\OG185028\OneDrive - NCR Corporation\Desktop\UDP Simulator\UDPSendDatagrams\obj\Debug\net7.0\UDPSendDatagrams.AssemblyInfoInputs.cache
+C:\Users\OG185028\OneDrive - NCR Corporation\Desktop\UDP Simulator\UDPSendDatagrams\obj\Debug\net7.0\UDPSendDatagrams.AssemblyInfo.cs
+C:\Users\OG185028\OneDrive - NCR Corporation\Desktop\UDP Simulator\UDPSendDatagrams\obj\Debug\net7.0\UDPSendDatagrams.csproj.CoreCompileInputs.cache
+C:\Users\OG185028\OneDrive - NCR Corporation\Desktop\UDP Simulator\UDPSendDatagrams\obj\Debug\net7.0\UDPSendDatagrams.dll
+C:\Users\OG185028\OneDrive - NCR Corporation\Desktop\UDP Simulator\UDPSendDatagrams\obj\Debug\net7.0\refint\UDPSendDatagrams.dll
+C:\Users\OG185028\OneDrive - NCR Corporation\Desktop\UDP Simulator\UDPSendDatagrams\obj\Debug\net7.0\UDPSendDatagrams.pdb
+C:\Users\OG185028\OneDrive - NCR Corporation\Desktop\UDP Simulator\UDPSendDatagrams\obj\Debug\net7.0\UDPSendDatagrams.genruntimeconfig.cache
+C:\Users\OG185028\OneDrive - NCR Corporation\Desktop\UDP Simulator\UDPSendDatagrams\obj\Debug\net7.0\ref\UDPSendDatagrams.dll

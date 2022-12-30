@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "G83vxzIKDUbqIeV35fLmthbEbBjMrvgib4QictKi3dL8JpqIvpOMPvt0LIiTb2hBCx6M/rNjm5rX8T2vUEpEfQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\OG185028\\OneDrive - NCR Corporation\\Desktop\\UDP Simulator\\UDPSendDatagrams\\UDPSendDatagrams.csproj",
+  "expectedPackageFiles": [],
+  "logs": [
+    {
+      "code": "NU1803",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "You are running the 'restore' operation with an 'HTTP' source, 'http://api.nuget.org/v3/index.json'. Non-HTTPS access will be removed in a future version. Consider migrating to an 'HTTPS' source."
+    }
+  ]
+}
